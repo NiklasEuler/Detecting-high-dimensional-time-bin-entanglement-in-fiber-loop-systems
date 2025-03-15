@@ -1,0 +1,157 @@
+julia version 1.10.2
+/home/ji29yis/PhD/Code/EntanglementCertificationTimeBins/SBATCH/PhaseEstimationStatistics/ARA/FixedPop2000_N8_S8000
+Using OPENBLAS
+Found 18 physical and 36 logical cores.
+Starting 36 Julia Threads and 1 BLAS Threads.
+ 46.705797 seconds (2.91 G allocations: 217.297 GiB, 31.14% gc time, 265.82% compilation time)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 200
+#Samples Populations : 2000.0
+#Samples Single Setting: 5600.0
+#Samples Compound Setting: 800.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.8494212237780099 ± 0.19444214417690683 | F_med = 0.8210151319012536
+Single Setup: F = 0.7971428571428572 ± 0.17762610083676744 | F_med = 0.7808035714285715
+Compound Setup: F = 0.8271875000000001 ± 0.1826136843961556 | F_med = 0.800078125
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.7678567337087803 ± 0.1918196943730161 | F_med = 0.7392915524423924
+Single Setup: F = 0.7061585978785389 ± 0.1758014325343585 | F_med = 0.6751204472989769
+Compound Setup: F = 0.7412308881593797 ± 0.18030764296709284 | F_med = 0.7214839154330879
+ 31.276446 seconds (2.89 G allocations: 215.572 GiB, 45.24% gc time, 0.05% compilation time: 100% of which was recompilation)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 550
+#Samples Populations : 2000.0
+#Samples Single Setting: 4900.0
+#Samples Compound Setting: 700.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.682566737743404 ± 0.10141687850622509 | F_med = 0.9243378911139861
+Single Setup: F = 0.6516326530612245 ± 0.09335787599524682 | F_med = 0.8713265306122449
+Compound Setup: F = 0.6748214285714286 ± 0.09614724667191608 | F_med = 0.8960714285714284
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.9402353553576106 ± 0.1104150560864662 | F_med = 0.8772621798130302
+Single Setup: F = 0.8589278751699329 ± 0.10145899593393506 | F_med = 0.7965607054042606
+Compound Setup: F = 0.9073288027212125 ± 0.10386695728639543 | F_med = 0.8482227223813112
+ 31.276919 seconds (2.89 G allocations: 215.555 GiB, 45.77% gc time)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 900
+#Samples Populations : 2000.0
+#Samples Single Setting: 4200.0
+#Samples Compound Setting: 600.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.9470070412364824 ± 0.06304220438077371 | F_med = 0.9510965699573024
+Single Setup: F = 0.8971428571428571 ± 0.05787824363484211 | F_med = 0.8934523809523809
+Compound Setup: F = 0.9183333333333332 ± 0.05887881670876012 | F_med = 0.9210416666666666
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.9054003734651583 ± 0.06262156872740239 | F_med = 0.9010693698878183
+Single Setup: F = 0.8339388280189909 ± 0.058354175233389205 | F_med = 0.8166711331791855
+Compound Setup: F = 0.8740959546156923 ± 0.05845371671164769 | F_med = 0.8698822231439903
+ 31.225542 seconds (2.89 G allocations: 215.540 GiB, 46.01% gc time)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 1250
+#Samples Populations : 2000.0
+#Samples Single Setting: 3500.0
+#Samples Compound Setting: 500.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.9471820098360793 ± 0.04962977336744076 | F_med = 0.9595946107266493
+Single Setup: F = 0.8957142857142857 ± 0.046029296487426326 | F_med = 0.9041428571428571
+Compound Setup: F = 0.91725 ± 0.046850036441599054 | F_med = 0.9302499999999999
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.9179716267231199 ± 0.05310628716031468 | F_med = 0.9051710598556189
+Single Setup: F = 0.836582240950339 ± 0.048727134728205265 | F_med = 0.8210134892724699
+Compound Setup: F = 0.8905556896784066 ± 0.049964441040452806 | F_med = 0.8722141313969358
+ 31.167562 seconds (2.89 G allocations: 215.523 GiB, 45.49% gc time)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 1600
+#Samples Populations : 2000.0
+#Samples Single Setting: 2800.0
+#Samples Compound Setting: 400.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.984070761016843 ± 0.046292192792848734 | F_med = 0.9628542561487501
+Single Setup: F = 0.945 ± 0.043667583349311846 | F_med = 0.9082142857142856
+Compound Setup: F = 0.95625 ± 0.043499322526281844 | F_med = 0.93359375
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.9280085600137123 ± 0.04422957212623815 | F_med = 0.9134485303910824
+Single Setup: F = 0.8508828244365857 ± 0.04243411646353128 | F_med = 0.8298312591373307
+Compound Setup: F = 0.899702045168081 ± 0.04245610078130027 | F_med = 0.8813945210360965
+ 31.111587 seconds (2.89 G allocations: 215.507 GiB, 45.93% gc time)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 1950
+#Samples Populations : 2000.0
+#Samples Single Setting: 2100.0
+#Samples Compound Setting: 300.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.9908385991386336 ± 0.04144590278122537 | F_med = 0.9678287427309569
+Single Setup: F = 0.9357142857142857 ± 0.03912933714580969 | F_med = 0.910952380952381
+Compound Setup: F = 0.9591666666666667 ± 0.039496437960006126 | F_med = 0.9358333333333333
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.9302293424099985 ± 0.04346587688962757 | F_med = 0.9180516663333032
+Single Setup: F = 0.84576916318403 ± 0.04131009806957828 | F_med = 0.8325672972686753
+Compound Setup: F = 0.8922714485955965 ± 0.04130683594036443 | F_med = 0.882970381064553
+ 31.244489 seconds (2.89 G allocations: 215.489 GiB, 45.74% gc time)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 2300
+#Samples Populations : 2000.0
+#Samples Single Setting: 1400.0
+#Samples Compound Setting: 200.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.9920641072005647 ± 0.03459568622075332 | F_med = 0.9716341325792154
+Single Setup: F = 0.93 ± 0.033227527259002285 | F_med = 0.915
+Compound Setup: F = 0.96375 ± 0.03420999512251596 | F_med = 0.9415625
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.913271791383837 ± 0.034788561483186216 | F_med = 0.9212397552711943
+Single Setup: F = 0.8505944317474055 ± 0.034898058133483026 | F_med = 0.8382754406295275
+Compound Setup: F = 0.8830207811746764 ± 0.0336553398270621 | F_med = 0.8877703540893049
+ 31.053002 seconds (2.89 G allocations: 215.472 GiB, 45.58% gc time)
+
+
+N = 8 | samples used: 8000.0
+#Samples Phase Estimation: 2650
+#Samples Populations : 2000.0
+#Samples Single Setting: 700.0
+#Samples Compound Setting: 100.0
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.9904902175631198 ± 0.03166027018185951 | F_med = 0.9730381615915009
+Single Setup: F = 0.9342857142857143 ± 0.03136377569606457 | F_med = 0.9164285714285714
+Compound Setup: F = 0.96125 ± 0.031683942611974256 | F_med = 0.94375
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.9185244922066932 ± 0.03184162939126017 | F_med = 0.9227816621511583
+Single Setup: F = 0.8225626824668301 ± 0.03286079092087718 | F_med = 0.8371029521367053
+Compound Setup: F = 0.8723315458103644 ± 0.03255433519493131 | F_med = 0.8876517724788097

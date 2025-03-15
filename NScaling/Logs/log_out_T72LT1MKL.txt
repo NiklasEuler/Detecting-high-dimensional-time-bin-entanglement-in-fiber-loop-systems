@@ -1,0 +1,66 @@
+julia version 1.10.2
+/home/ji29yis/PhD/Code/EntanglementCertificationTimeBins/SBATCH/N_scaling/ARA/FixedDistro_Nmax16
+Using OPENBLAS
+Found 36 physical and 72 logical cores.
+Starting 72 Julia Threads and 1 BLAS Threads.
+[500,950,1950,3975]
+ 14.489690 seconds (37.61 M allocations: 2.584 GiB, 2.98% gc time, 6871.77% compilation time)
+
+
+N = 2 | samples used: 2000
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.999668430923489 ± 0.012332226857248838 | F_avg = 0.9916039731401415
+Single Setup: F = 0.986 ± 0.014677888704908056 | F_avg = 0.981408
+Compound Setup: F = 0.99 ± 0.013390328816411624 | F_avg = 0.9867359999999998
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9482125000000003
+True Fidelity ρ_corr to Ψ_MES = 0.9165521080552128 ± 0.01318022888038771 | F_avg = 0.9398042609393346
+Single Setup: F = 0.8780238230365971 ± 0.018796231181926883 | F_avg = 0.9131828551403985
+Compound Setup: F = 0.8650238230365969 ± 0.016966400891376604 | F_avg = 0.9185748551403985
+  1.093398 seconds (48.85 M allocations: 5.746 GiB, 52.99% gc time, 2.20% compilation time: 100% of which was recompilation)
+
+
+N = 4 | samples used: 4000
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.9633045850770409 ± 0.0225798503623885 | F_avg = 0.9792521566133245
+Single Setup: F = 0.9276190476190476 ± 0.023222530412862596 | F_avg = 0.9555047619047619
+Compound Setup: F = 0.9485714285714285 ± 0.02253489489377988 | F_avg = 0.9686514285714287
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.94859125
+True Fidelity ρ_corr to Ψ_MES = 0.8602995173624957 ± 0.023014578549398517 | F_avg = 0.9274670656967376
+Single Setup: F = 0.8087665202503792 ± 0.024937058973984783 | F_avg = 0.8770949643587246
+Compound Setup: F = 0.8548502750970828 ± 0.023836024415815563 | F_avg = 0.9076809310538454
+ 49.324912 seconds (2.89 G allocations: 215.640 GiB, 35.73% gc time, 134.90% compilation time)
+
+
+N = 8 | samples used: 8000
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.9778839819974636 ± 0.03771710358428648 | F_avg = 0.9573633194201413
+Single Setup: F = 0.9404761904761905 ± 0.03614994767352612 | F_avg = 0.9026380952380952
+Compound Setup: F = 0.9370833333333333 ± 0.035732383901670633 | F_avg = 0.9287083333333332
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486648437500002
+True Fidelity ρ_corr to Ψ_MES = 0.9072043974014573 ± 0.04159252860659341 | F_avg = 0.9036969576254654
+Single Setup: F = 0.8333005485601914 ± 0.03997061023524961 | F_avg = 0.8218938787931547
+Compound Setup: F = 0.8758137320638344 ± 0.03862396858469988 | F_avg = 0.8729780643147222
+1101.253623 seconds (158.83 G allocations: 8.524 TiB, 60.27% gc time, 0.00% compilation time)
+
+
+N = 16 | samples used: 16000
+
+Purity tr(ρ^2) = 1
+True Fidelity ρ_corr to Ψ_MES = 0.736134786254151 ± 0.07066643905371148 | F_avg = 0.9087146751377451
+Single Setup: F = 0.6647272727272728 ± 0.06208473035703204 | F_avg = 0.8055156363636365
+Compound Setup: F = 0.699090909090909 ± 0.06306623516106025 | F_avg = 0.8536854545454544
+
+Purity tr(ρ^2) ≈ 0.9
+Max. Fidelity perfect phase correction = 0.9486812499999999
+True Fidelity ρ_corr to Ψ_MES = 0.9114419416161723 ± 0.0693232961133789 | F_avg = 0.8671712695736163
+Single Setup: F = 0.7615477354693296 ± 0.06100082170545761 | F_avg = 0.7341711679481489
+Compound Setup: F = 0.8600948049764005 ± 0.06242068745164468 | F_avg = 0.8123901500358619
