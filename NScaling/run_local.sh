@@ -19,8 +19,8 @@ export N_SAMPLES_POP="[500,950,1950,3975]" # number of samples for the populatio
 export N_SAMPLES_PHASE_EACH="[500,1000,1975,3950]" # number of samples for each phase estimation DTQW for each N
 export N_SAMPLES_COMPOUND_EACH="[500,350,300,275]" # number of samples for each of the compound-setting DTQWs for each N
 
-export T=4 # number of Julia threads
+export JULIA_NUM_THREADS=4 # number of Julia threads
 export USE_MKL=false # flag to use MKL or OPENBLAS
 export MKL_T=1 # number of MKL threads
 export BLAS_T=1 # number of OPENBLAS threads
-julia -t ${T} run.jl $USE_MKL $N_RESAMPLES $N_MAX $EPS_ANGL $N_SAMPLES_POP $N_SAMPLES_PHASE_EACH $N_SAMPLES_COMPOUND_EACH 2>&1 | tee Logs/Log.txt
+julia run.jl $USE_MKL $N_RESAMPLES $N_MAX $EPS_ANGL $N_SAMPLES_POP $N_SAMPLES_PHASE_EACH $N_SAMPLES_COMPOUND_EACH 2>&1 | tee Logs/Log.txt

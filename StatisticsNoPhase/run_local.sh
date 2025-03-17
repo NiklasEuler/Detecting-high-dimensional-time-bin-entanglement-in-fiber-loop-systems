@@ -21,11 +21,11 @@ export EPS=0.05215 # dephasing parameter
 export N_SAMPLES_COMPOUND_EACH="[140,200,260,320,380,440,500,560]"
     # number of samples for each of the compound-setting DTQWs
 
-export T=4 # number of Julia threads
+export JULIA_NUM_THREADS=4 # number of Julia threads
 export USE_MKL=false # flag to use MKL or OPENBLAS
 export MKL_T=1 # number MKL threads
 export BLAS_T=1 # number of OPENBLAS threads
-julia -t ${T} run.jl $USE_MKL $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_COMPOUND_EACH 2>&1 | tee Logs/Log.txt
+julia run.jl $USE_MKL $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_COMPOUND_EACH 2>&1 | tee Logs/Log.txt
 
 
 

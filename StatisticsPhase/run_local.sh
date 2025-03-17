@@ -22,11 +22,11 @@ export N_SAMPLES_PHASE_EACH="[200,550,900,1250,1600,1950,2300,2650]"
     # number of samples for each phase estimation DTQW
 
 
-export T=4 # number of Julia threads
+export JULIA_NUM_THREADS=4 # number of Julia threads
 export USE_MKL=false
 export MKL_T=1 # number MKL threads
 export BLAS_T=1 # number of OPENBLAS threads
-julia -t ${T} run.jl $USE_MKL $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_PHASE_EACH 2>&1 | tee Logs/Log.txt
+julia run.jl $USE_MKL $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_PHASE_EACH 2>&1 | tee Logs/Log.txt
 
 
 
