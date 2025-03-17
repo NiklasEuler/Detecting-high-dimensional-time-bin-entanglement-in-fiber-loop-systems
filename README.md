@@ -1,4 +1,5 @@
 # Detecting high-dimensional time-bin entanglement in fiber-loop systems
+[![DOI](https://zenodo.org/badge/948671890.svg)](https://doi.org/10.5281/zenodo.15041228)
 
 This repository contains the data from numerical simulations presented in the paper "Detecting high-dimensional time-bin entanglement in fiber-loop systems" (https://arxiv.org/abs/2502.18336) as well as all scripts used to generate and visiualize it. The source code used in the scripts is stored seperately in the Julia package "TimeBinEncoding.jl" (https://github.com/NiklasEuler/TimeBinEncoding.jl).
 
