@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "$(dirname "$0")"
 
 export RUNNAME=RUN_LOCAL
 
@@ -25,7 +26,7 @@ export T=4 # number of Julia threads
 export USE_MKL=false
 export MKL_T=1 # number MKL threads
 export BLAS_T=1 # number of OPENBLAS threads
-julia -t ${T} run.jl $USE_MKL $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_PHASE_EACH > Logs/Log.txt
+julia -t ${T} run.jl $USE_MKL $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_PHASE_EACH 2>&1 | tee Logs/Log.txt
 
 
 

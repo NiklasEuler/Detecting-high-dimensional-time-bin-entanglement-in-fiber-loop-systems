@@ -3,7 +3,6 @@
 #SBATCH --partition=s_test
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=1
-#SBATCH --mail-type=ALL
 
 #SBATCH --cpus-per-task=72
 

@@ -118,6 +118,8 @@ begin
 	for (idx_phase, N_samples_phase) in enumerate(n_phase_arr)
 		# iterate over all sample distributions, including phase estimation samples
 		path = string(@__DIR__, "/Data/N$(N)N_phase$(N_samples_phase).jld2")
+
+		path = string(@__DIR__, "/RUN_LOCAL/Data/N$(N)N_phase$(N_samples_phase).jld2")
 		
 		results = load(path) #load data
 		fidelity_sampled_single_pure[:,idx_phase] = results["fidelity_sampled_single_pure"]

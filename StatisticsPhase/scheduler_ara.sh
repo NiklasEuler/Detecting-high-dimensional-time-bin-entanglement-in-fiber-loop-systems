@@ -1,10 +1,10 @@
 #!/bin/bash
+cd "$(dirname "$0")"
 
-export RUNNAME=RUN_SLURM^
+export RUNNAME=RUN_SLURM
 
 mkdir -p ${RUNNAME}/Logs
 mkdir -p ${RUNNAME}/Data
-mkdir -p ${RUNNAME}/Figs
 
 cp startup_ara.sbatch ${RUNNAME}/
 cp run.jl ${RUNNAME}/

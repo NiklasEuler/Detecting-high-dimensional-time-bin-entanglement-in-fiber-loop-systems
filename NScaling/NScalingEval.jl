@@ -304,7 +304,7 @@ fig2 = let
 	name = "N_scaling_dephased"
 	PyPlot.savefig(string(path, name, ".pdf"))
 	PyPlot.savefig(string(path, name, ".svg"), transparent=false)
-	PyPlot.savefig(string(path, name, ".png"), dpi=1200, transparent=false)
+	# PyPlot.savefig(string(path, name, ".png"), dpi=1200, transparent=false)
 
 	PyPlot.close(fig)
 	fig
