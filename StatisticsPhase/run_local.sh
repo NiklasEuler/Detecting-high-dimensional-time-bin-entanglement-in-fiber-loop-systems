@@ -1,14 +1,12 @@
 #!/bin/bash
 
-export RUNNAME=RUN_SLURM^
+export RUNNAME=RUN_LOCAL
 
 mkdir -p ${RUNNAME}/Logs
 mkdir -p ${RUNNAME}/Data
-mkdir -p ${RUNNAME}/Figs
 
-cp startup_ara.sbatch ${RUNNAME}/
+cp run_local.sh ${RUNNAME}/
 cp run.jl ${RUNNAME}/
-cp scheduler_ara.sh ${RUNNAME}/
 
 cd ${RUNNAME}/
 
@@ -23,14 +21,11 @@ export N_SAMPLES_PHASE_EACH="[200,550,900,1250,1600,1950,2300,2650]"
     # number of samples for each phase estimation DTQW
 
 
-export T=36
-export CORES="--cpus-per-task=$T"
-export MEM="--mem=96gb"
-export TIME="--time=01:00:00"
-export MKL_T=1
-export BLAS_T=1
-sbatch --job-name=${RUNNAME}_T${T}LT${MKL_T}MKL ${MEM} ${TIME} ${CORES} --output=Logs/log_out_T${T}LT${MKL_T}MKL.txt startup_ara.sbatch $T $MKL_T false $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_PHASE_EACH
-sleep 0.1
+export T=4 # number of Julia threads
+export USE_MKL=false
+export MKL_T=1 # number MKL threads
+export BLAS_T=1 # number of OPENBLAS threads
+julia -t ${T} run.jl $USE_MKL $N_RESAMPLES $N $N_SAMPLES $EPS_ANGL $EPS $N_SAMPLES_PHASE_EACH > Logs/Log.txt
 
 
 
