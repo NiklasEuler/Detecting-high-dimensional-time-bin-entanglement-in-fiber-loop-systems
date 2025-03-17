@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#SBATCH --partition=s_standard
+#SBATCH --partition=s_test
 #SBATCH --nodes=1
 #SBATCH --tasks-per-node=1
 
