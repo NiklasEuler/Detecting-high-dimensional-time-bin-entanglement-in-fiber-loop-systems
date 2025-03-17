@@ -208,69 +208,101 @@ begin
 end
 
 # ╔═╡ e1027453-7355-4ceb-8cbf-6fbcb89e629b
-fig2 = let
+fig = begin
 	column_width = 3.40457
-	fig_height = column_width * 0.7
+	fig_height = column_width * 1.2
 	cap_size = 3
 	marker_size = 2
 	lw_err = 1
 	ls_err = ""
-	fig, axs = subplots(1, figsize = (column_width, fig_height), sharex=true)
+	fig, axs = subplots(2, figsize = (column_width, fig_height), sharex=true)
 
 	x_plot = 1:0.1:4.5
 	letter_arr = [L"$\bm{(a)}$", L"$\bm{(b)}$"]
 
 	xN = 1:4
 
-	axs.set_ylim([0.7, 1])
-	axs.grid()
-	axs.set_ylabel(L"$F$")
-	axs.yaxis.set_major_locator(ticker.MultipleLocator(0.1))
-	axs.yaxis.set_minor_locator(ticker.MultipleLocator(0.02))
-	for lv in 3:N_max
-		if lv % 3 == 0
-			alpha = 0.9
-		else
-			alpha = 0.25
-		end
-		color = tuple([incr[j] * (lv - 1)/(N_max - 1) + dimgrey[j] for j in eachindex(incr)]...)
-		axs.plot(x_plot, lv ./ (2 .^ (x_plot)), color = color, ls= (0, (3, 1)), lw= 0.75, alpha=alpha)
-
-		if lv % 3 == 0
-			if 3 < lv < 12
-				y_pos = 0.975
-				x_pos = log2(lv/y_pos) -  0.19
-			elseif lv < 10
-				y_pos = 0.975
-				x_pos = log2(lv/y_pos) -  0.2
+	for idx_ax in 1:2
+		axs[idx_ax].set_ylim([0.7, 1.0175])
+		axs[idx_ax].grid()
+		axs[idx_ax].set_ylabel(L"$F$")
+		axs[idx_ax].yaxis.set_major_locator(ticker.MultipleLocator(0.1))
+		axs[idx_ax].yaxis.set_minor_locator(ticker.MultipleLocator(0.02))
+		axs[idx_ax].text(0.1, 0.98, letter_arr[idx_ax])
+		for lv in 3:N_max
+			if lv % 3 == 0
+				alpha = 0.9
 			else
-				y_pos = 0.975
-				x_pos = log2(lv/y_pos) - 0.26
+				alpha = 0.25
 			end
-			axs.text(x_pos, y_pos, latexstring("\$B_{$lv}\$"), color = color, fontsize="small", alpha=alpha)
+			color = tuple([incr[j] * (lv - 1)/(N_max - 1) + dimgrey[j] for j in eachindex(incr)]...)
+			axs[idx_ax].plot(x_plot, lv ./ (2 .^ (x_plot)), color = color, ls= (0, (3, 1)), lw= 0.75, alpha=alpha)
+				# plot the Bk thresholds
+			if lv % 3 == 0
+				if 3 < lv < 12
+					y_pos = 0.85
+					x_pos = log2(lv/y_pos) -  0.21
+				elseif lv < 10
+					y_pos = 0.975
+					x_pos = log2(lv/y_pos) -  0.215
+				else
+					y_pos = 0.975
+					x_pos = log2(lv/y_pos) - 0.28
+				end
+				axs[idx_ax].text(x_pos, y_pos, latexstring("\$B_{$lv}\$"), color = color, fontsize="small", alpha=alpha)
+			end
 		end
 	end
+	axs[1].scatter(xN, fill(1, length(xN)), marker = "x", lw=lw_err, label = "true fidelity\n (phase free)", zorder=2, color="darkgreen")
+	axs[2].scatter(xN, fidel_deph_true, marker = "x", lw=lw_err, label = "true fidelity\n (phase free)", zorder=2, color="darkgreen")
+		# plot the pure and dephased true fidelities of a phase-free initial state
 
-	axs.scatter(xN, fidel_deph_true, marker = "x", lw=lw_err, label = "true fidelity\n (phase free)", zorder=2, color="darkgreen")
-		# plot the dephased true fidelities for all N with no initial phases
+	axs[1].errorbar(xN, med_true_corr_pure, yerr = asymm_y_err_corr_pure, color = cmap(2), marker="v", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "true fidelity")
+	axs[2].errorbar(xN, med_true_corr_deph, yerr = asymm_y_err_corr_deph, color = cmap(2), marker="v", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "true fidelity")
+		# plot the pure and dephased true fidelity medians after application of the phase-correction protocol
+	axs[1].errorbar(xN, med_single_pure, yerr = asymm_y_err_single_pure, color = cmap(0), marker="<", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "SS")
+	axs[2].errorbar(xN, med_single_deph, yerr = asymm_y_err_single_deph, color = cmap(0), marker="<", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "SS")
+		# plot the true and dephased fidelity bound-medians from the single-DTQW setup, including phase correction
+	axs[1].errorbar(xN, med_comp_pure, yerr = asymm_y_err_comp_pure, color = cmap(1), marker=">", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "CS")
+	axs[2].errorbar(xN, med_comp_deph, yerr = asymm_y_err_comp_deph, color = cmap(1), marker=">", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "CS")
+		# plot the true and dephased fidelity bound-medians from the compound-DTQW setup, including phase correction
 
-	axs.errorbar(xN, med_true_corr_deph, yerr = asymm_y_err_corr_deph, color = cmap(2), marker="v", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "true fidelity")
-		# plot the dephased true phase-corrected fidelity medians for all N
+	axs[1].set_xlim([0.8, 4.15])
+	axs[1].set_xticks(1:n_N, [2^n for n in 1:n_N])
+	axs[2].set_xlabel(L"$N$", labelpad = 0)
 
-	axs.errorbar(xN, med_single_deph, yerr = asymm_y_err_single_deph, color = cmap(0), marker="<", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "SS")
-		# plot the dephased fidelity-bound medians from the single-DTQW setup including phase correction for all N
-	axs.errorbar(xN, med_comp_deph, yerr = asymm_y_err_comp_deph, color = cmap(1), marker=">", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, label = "CS")
-		# plot the dephased fidelity-bound medians from the compound-DTQW setup including phase correction for all N
+	x1, x2, y1, y2 = 0.9, 1.1, 0.97, 1.0125
+	ix1, iy1, ixw, iyh = 0.9, 0.715, 0.5, 0.17
+	axins1 = axs[1].inset_axes(
+    	[ix1, iy1, ixw, iyh], xlim=(x1, x2), xticklabels=[], transform=axs[1].transData
+	)
+	axins1.set_ylim([0.97, 1.003])
+	axins1.yaxis.set_major_locator(ticker.MultipleLocator(0.01))
+	axins1.yaxis.set_minor_locator(ticker.MultipleLocator(0.005))
+	axins1.yaxis.tick_right()
+	yticks = [0.97, 0.98, 0.99, 1.0]
+	axins1.set_yticks(yticks)
+	axins1.set_yticklabels(yticks, fontsize=8)
+	axins1.tick_params(axis="y", which="major", pad=2)
+	axins1.grid()
+	axins1.set_xticks([], [])
+
+	zoom_axs1 = patches.Rectangle((x1, y1), x2-x1, y2-y1, fill=false, lw=lw_err, color = "grey")
+	axs[1].plot([x1, ix1],[y1, iy1 + iyh], color="grey", lw=1)
+	axs[1].plot([x2, ix1 + ixw],[y2, iy1 + iyh], color="grey", lw=1)
 
 
-	axs.set_xlim([0.8, 4.15])
-	axs.set_xlabel(L"$N$", labelpad = 0)
-	axs.set_xticks(1:n_N, [2^n for n in 1:n_N])
+	idx_N = 1
+	axins1.errorbar(xN, med_single_pure, yerr = asymm_y_err_single_pure, color = cmap(0), marker="<", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, zorder=3)
+	axins1.errorbar(xN, med_comp_pure, yerr = asymm_y_err_comp_pure, color = cmap(1), marker=">", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, zorder=3)
+	axins1.errorbar(xN, med_true_corr_pure, yerr = asymm_y_err_corr_pure, color = cmap(2), marker="v", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, zorder=3)
+	axins1.scatter(xN, fill(1, length(xN)), marker = "x", lw=lw_err, zorder=2, color="darkgreen")
+		# zoom in on N=2 data for a pure initial state
 
 	x1, x2, y1, y2 = 0.9, 1.1, 0.9, 0.96  # subregion of the first ax
-	ix1, iy1, ixw, iyh = 0.9, 0.715, 0.5, 0.17
-	axins2 = axs.inset_axes(
-    	[ix1, iy1, ixw, iyh], xlim=(x1, x2), xticklabels=[], transform=axs.transData, zorder=10
+	ix1, iy1, ixw, iyh =  0.9, 0.71, 0.5, 0.17
+	axins2 = axs[2].inset_axes(
+    	[ix1, iy1, ixw, iyh], xlim=(x1, x2), xticklabels=[], transform=axs[2].transData
 	)
 	axins2.set_ylim([0.8975, 0.9525])
 	axins2.yaxis.set_major_locator(ticker.MultipleLocator(0.01))
@@ -286,26 +318,27 @@ fig2 = let
 	axins2.grid()
 
 	zoom_axs2 = patches.Rectangle((x1, y1), x2-x1, y2-y1, fill=false, lw=lw_err, color = "grey")
-	axs.plot([x1, ix1],[y1, iy1 + iyh], color="grey", lw=1)
-	axs.plot([x2, ix1 + ixw],[y2, iy1 + iyh], color="grey", lw=1)
+	axs[2].plot([x1, ix1],[y1, iy1 + iyh], color="grey", lw=1)
+	axs[2].plot([x2, ix1 + ixw],[y2, iy1 + iyh], color="grey", lw=1)
 
 	axins2.errorbar(xN, med_single_deph, yerr = asymm_y_err_single_deph, color = cmap(0), marker="<", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, zorder=3)
 	axins2.errorbar(xN, med_comp_deph, yerr = asymm_y_err_comp_deph, color = cmap(1), marker=">", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, zorder=3)
 	axins2.errorbar(xN, med_true_corr_deph, yerr = asymm_y_err_corr_deph, color = cmap(2), marker="v", ms = marker_size, capsize=cap_size, ls=ls_err, lw=lw_err, capthick=lw_err, zorder=3)
 	axins2.scatter(xN, fidel_deph_true, marker = "x", lw=lw_err, label = "true fidelity (phase free)", zorder=2, color="darkgreen")
-		# zoom in on the N=2 data for the pure initial state
+	# zoom in on N=2 data for a dephased initial state
 
-	axs.add_artist(zoom_axs2)
+	axs[1].add_artist(zoom_axs1)
+	axs[2].add_artist(zoom_axs2)
 
-	axs.legend(ncol = 2, columnspacing = 0.3, loc = "center",
+	axs[1].legend(ncol = 4, columnspacing = 0.3, loc = "center",
 	  		  handlelength = 1.25, labelspacing = 0.5, framealpha = 0.8, borderpad = 0.3,
-	  		  borderaxespad = 0.2, handletextpad = 0.2, fontsize = 8, bbox_to_anchor = (0.6, 0.175), )#, loc = "lower center", fontsize = "large",
+	  		  borderaxespad = 0.2, handletextpad = 0.2, fontsize = 8, bbox_to_anchor = (0.5, -0.16), )
+	
 	plt.tight_layout()
-	name = "N_scaling_dephased"
+	plt.subplots_adjust(hspace=0.3)
+	name = "N_scaling"
+	PyPlot.savefig(string(path, name, ".svg"), transparent=true)
 	PyPlot.savefig(string(path, name, ".pdf"))
-	PyPlot.savefig(string(path, name, ".svg"), transparent=false)
-	# PyPlot.savefig(string(path, name, ".png"), dpi=1200, transparent=false)
-
 	PyPlot.close(fig)
 	fig
 end
